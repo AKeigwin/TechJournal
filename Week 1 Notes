@@ -1,0 +1,26 @@
+Edit network settings
+  1. Edit settings of VM
+  2. Change network adapter to desired network
+  
+Change network configuration information
+  1. Find the MAC address in the Settings menu (under the network adapters)
+  2. Select 1 in VM to reassign Network Interfaces
+  3. Verify MAC address
+  4. (optional) Configure VLANs
+  5. Change WAN interface (em0)
+  6. Change LAN interface (em1)
+  7. Proceed with changes
+
+Set interface IP address
+  1. Select 2
+  2. Select number for interface
+    - LAN will use 10.0.5.2 for the IP address
+    - WAN will use 10.0.17.140 for the IP address
+  2. Enter 24 for a 24 bit subnet mask
+  3. (For WAN) Enter 10.0.17.2 for the upstream gateway
+    - LAN does not use an upstream LAN gateway
+  4. (For WAN) Use the gateway as the IPv4 name server
+  5. Ignore IPv6 configurations
+  6. Ignore DHCP configurations
+  7. Do not enable HTTP for GUI (we want to use HTTPS)
+
