@@ -23,4 +23,3 @@ Set interface IP address
   5. Ignore IPv6 configurations
   6. Ignore DHCP configurations
   7. Do not enable HTTP for GUI (we want to use HTTPS)
-
