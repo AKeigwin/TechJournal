@@ -1,0 +1,14 @@
+Add Active Directory (or any other roles or servers) to Windows Server
+  1. Open Server Manager
+  2. Under Manage tool, click Add Roles and Features
+  3. Select Role-based installation
+  4. Choose roles to add
+  5. Do automatic restarts
+  6. Install
+  
+Add New Forest in Server Manager
+  1. Open Active Directory Domain Services Configuration Wizard
+  2. Select Add a new forest, and name the root domain name
+  3. Enter the DSRM (Directory Services Restore Mode) password (3th3rDream427)
+  4. Go through pages until you can install
+    * Note, there will be automatic reboots
