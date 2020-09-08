@@ -23,3 +23,17 @@ Set interface IP address
   5. Ignore IPv6 configurations
   6. Ignore DHCP configurations
   7. Do not enable HTTP for GUI (we want to use HTTPS)
+
+Vocab
+-----
+
+Pfsense - free and open source firewall and router, terminal in the fw01 vm, but GUI setup is done over Chrome using wks01
+
+Upstream gateway - a router that connects to a different network segment, but is physically connected to the WAN, used with Pfsense configuration
+Netgate Docs - https://docs.netgate.com/pfsense/en/latest/book/interfaces/ipv4-wan-types.html
+
+lusrmgr.msc - Account System Settings (Local user and group management), universal console, manage users and groups on computer
+iTechTips - https://www.itechtics.com/lusrmgr/#:~:text=by%20Usman%20Khurshid-,Local%20user%20and%20group%20management%20(lusrmgr.,8%20and%20now%20Windows%2010.
+
+Tracert /h x - Does the tracert command with a maximum number of hops (x)
+Microsoft Tracert Troubleshooting - https://support.microsoft.com/en-us/help/314868/how-to-use-tracert-to-troubleshoot-tcp-ip-problems-in-windows
