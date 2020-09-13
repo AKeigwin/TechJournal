@@ -12,3 +12,25 @@ Add New Forest in Server Manager
   3. Enter the DSRM (Directory Services Restore Mode) password (3th3rDream427)
   4. Go through pages until you can install
     * Note, there will be automatic reboots
+
+Add DNS Record in DNS Manager
+  1. Open DNS Manager using Server Manager/DNS/AD01
+  2. Add new zone in Reverse Lookup Zones (right click)
+  3. Enter Network ID (10.0.5.2) and click through everything else
+  4. Expand forward lookup zone (amy.local) and right click to add New Host (A or AAAA)
+  5. Enter host (fw01-amy) and IP address (ex: 10.0.5.2)
+  6. Check "Create/Update associated (PTR) record
+  7. The view may need to be refreshed (green circle loop in top left)
+
+Create Named Domain Users
+  1. Open AD Users and Computers using Server Manager/AD DS/Active Directory Users and Computers
+  2. Right click Users folder to add New/User *open domain (amy.local)
+  3. Fill out First Name, Last Name, Full Name, and User logon name *uncheck "User must change password at next login"
+  4. Right click user to Add to a group (if need be)
+  5. Enter the object names to select (Domain Admins)
+  
+
+Misc. Notes
+  - PTR records can be created manually whenever needed
+      - There doesn't need to be prior settings enabled, all settings can be managed by the user manually
+  - 
