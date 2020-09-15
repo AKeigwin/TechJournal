@@ -1,0 +1,23 @@
+Add IP Address and Hostname to CentOS
+  1. Login as root
+  2. ntmui
+  3. Select interface and press enter
+  4. Change Automatic IPv4 configuration to Manual
+  5. Show
+  6. Add IP address(es) (with /24 for subnet mask), gateway, DNS server(s), and search domain(s)
+  7. Make sure that Automatically connect has an "X"
+  8. Press Ok
+  9. Press back
+  10. Select "Set system hostname"
+  11. Type in system hostname (dhcp01-amy)
+  12. Press Ok, then Quit
+  13. Verify IP address with ifconfig
+  14. If no IP address is there, type systemctl restart network
+  15. Type exit to change the hostname, and sign back in
+  
+Add Privileged User to CentOS
+  1. Login as root
+  2. useradd [name]
+  3. passwd [name]
+  4. usermod -aG wheel [name]
+  5. (optional) to sudo in, sudo -l
