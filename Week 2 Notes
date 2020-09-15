@@ -16,7 +16,7 @@ Add New Forest in Server Manager
 Add DNS Record in DNS Manager
   1. Open DNS Manager using Server Manager/DNS/AD01
   2. Add new zone in Reverse Lookup Zones (right click)
-  3. Enter Network ID (10.0.5.2) and click through everything else
+  3. Enter Network ID (10.0.5) and click through everything else
   4. Expand forward lookup zone (amy.local) and right click to add New Host (A or AAAA)
   5. Enter host (fw01-amy) and IP address (ex: 10.0.5.2)
   6. Check "Create/Update associated (PTR) record
