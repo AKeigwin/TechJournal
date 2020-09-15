@@ -21,3 +21,7 @@ Add Privileged User to CentOS
   3. passwd [name]
   4. usermod -aG wheel [name]
   5. (optional) to sudo in, sudo -l
+
+Commands:
+---------
+
