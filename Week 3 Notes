@@ -25,3 +25,8 @@ Add Privileged User to CentOS
 Commands:
 ---------
 
+tar -cfz [folder path] - used to archive files, a common use is the zip a folder into a compressed gzip file
+
+nslookup *type=[x]* [website, IP address] - used to find the network information for a IP address or website
+
+groups [group name] - used to display all users that belong to a group
