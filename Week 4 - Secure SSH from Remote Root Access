@@ -1,0 +1,8 @@
+Secure SSH from Remote Root Access on CentOS:
+---------------------------------------------
+
+1. Sign into root user using "su"
+2. Navigate to the ssh directory using "cd /etc/ssh"
+3. Open the sshd_config file using "nano sshd_config" *root permissions are required, so use sudo or root user
+4. Find the line PermitRootLogin (Ctrl-W), take out the comment if needed, and change the yes to no (ex: PermitRootLogin no)
+5. Save and close the file
