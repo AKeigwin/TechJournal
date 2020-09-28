@@ -1,0 +1,8 @@
+DHCP Attributes:
+----------------
+
+Bootp flags - differentiates between broadcast and unicast; broadcast is traffic sent to all possible locations on the network, while unicast is traffic sent to one specific location (ex: Bootp flags: 0x0000 (Unicast))
+
+Transaction ID - verifies that server and client have common goal (ex: 0x7e763db4)
+
+Boot file name - used in PXE boot (boot from the network), and the boot file name is the name of the file on the network that the client is getting their information from
