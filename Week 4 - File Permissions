@@ -1,0 +1,20 @@
+File Permissions:
+------------------
+
+Create Group
+- groupadd new_group
+
+
+Add Group Members
+- useradd user_name new_group
+
+Adjust rwx Directory and File Permissions
+- chgrp: change the group of the file
+  chgrp group_name /directory
+- chmod: change permissions of file or directory
+  - use g for group permissions, o for other permissions, u for user/owner
+  - r is for read, w is for write, x is for execute
+  - + is for add permissions, - is for subtracting permissions
+  chmod g+rwx /directory/file
+- chown: change the owner of the file
+  chown user_name /directory/file
