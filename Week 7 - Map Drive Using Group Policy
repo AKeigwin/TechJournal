@@ -1,0 +1,18 @@
+Lab 07 - Map Drive to Share Using Group Policy
+1. Set up OU structure in Active Directory (OUs Computers, Groups, and Users in OU SYS255)
+2. Add computers and users to Computers and Users OUs (Computers has WKS02-AMY and FS01-AMY, Users has Alice and Bob)
+3. Create Security Grouo Sales-Users in Groups OU with Alice as the only member
+4. In Group Policy Management, create a group policy in the SYS255 OU named Sales-Users Share
+5. Edit the group policy both in Scope and Group Policy Management Editor:
+  a. In Scope:
+    i. Add Sales-Users to Security Filtering
+    ii. Remove Authenticated Users from Security Filtering
+    iii. Add Domain Computers to Security Filtering
+  b. In Group Policy Management Editor:
+    i. Under User Configuration > Preferences > Windows Settings, right click Drive Maps and click New > Mapped Drive
+    ii. Add Location as \\FS01\Sales
+    iii. Check Reconnect
+    iv. Make sure that Use Drive Letter is selected, and change the drive letter to S
+    v. Click Ok to apply the settings
+6. In WKS02-AMY, logged in as Alice, run the command gpupdate /force
+7. Run command gpresult /r
