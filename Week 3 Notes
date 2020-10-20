@@ -5,6 +5,10 @@ Add IP Address and Hostname to CentOS
   4. Change Automatic IPv4 configuration to Manual
   5. Show
   6. Add IP address(es) (with /24 for subnet mask), gateway, DNS server(s), and search domain(s)
+    a. 10.0.5.4/24
+    b. 10.0.5.2
+    c. 10.0.5.6
+    d. amy.local
   7. Make sure that Automatically connect has an "X"
   8. Press Ok
   9. Press back
@@ -20,7 +24,7 @@ Add Privileged User to CentOS
   2. useradd [name]
   3. passwd [name]
   4. usermod -aG wheel [name]
-  5. (optional) to sudo in, sudo -l
+  5. (optional) to elevate to root, sudo -i
 
 Commands:
 ---------
