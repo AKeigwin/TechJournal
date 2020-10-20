@@ -1,0 +1,30 @@
+Configure new DHCP server on Windows Server 2019
+1. Open Server Manager
+2. Click Add Roles and features
+3. Select Role-based or feature-based installation
+4. Select a server from the server pool (in this case, ad02)
+5. In Select Server Roles, click DHCP and click Next
+6. Check Include management tools (if applicable) and click Add Features
+7. Skip Select features scence
+8. Click Next
+9. Check Restart the destination server automatically if required and click Install
+10. When the installation is successful, click Complete DHCP configuration (can be done from Flags, from the Installation window, or from DHCP pane on left side)
+11. Choose the credentials (default is AMY/amy.keigwin-adm, which is the admin role for the domain)
+12. Under Tools, select DHCP
+13. Under DHCP > ad02-amy.amy.local > IPv4, right click IPv4 and Add a new scope
+14. Choose a name and description for the scope
+15. Choose the Start and End IP address (10.0.5.150 to 10.0.5.175)
+16. Choose the Subnet mask (Length will automatically change to 24 for a subnet mask of 255.255.255.0)
+17. Skip Exclusions and Delay
+18. Change Lease Duration (90 days)
+19. Configure these options now
+20. Specify the default gateway (10.0.5.2)
+21. Add DNS server (10.0.5.2)
+22. Skip WINS servers
+23. Select Yes, I want to activate this scope now
+
+Renew DHCP Configurations
+  For Windows:
+    1. In Powershell, run ipconfig /release
+    2. ipconfig /renew
+    3. Verify with ipconfig /all
