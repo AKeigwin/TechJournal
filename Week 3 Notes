@@ -1,6 +1,6 @@
 Add IP Address and Hostname to CentOS
   1. Login as root
-  2. ntmui
+  2. nmtui
   3. Select interface and press enter
   4. Change Automatic IPv4 configuration to Manual
   5. Show
