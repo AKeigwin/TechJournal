@@ -16,3 +16,5 @@ Lab 07 - Map Drive to Share Using Group Policy
     v. Click Ok to apply the settings
 6. In WKS02-AMY, logged in as Alice, run the command gpupdate /force
 7. Run command gpresult /r
+
+* Unable to get mapped drive to show in File Explorer, but did appear in gpresult
