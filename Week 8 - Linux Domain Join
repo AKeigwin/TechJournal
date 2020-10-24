@@ -1,0 +1,9 @@
+Linux Domain Join
+1. sudo yum install realmd samba samba-common oddjob oddjob-mkhomedir sssd
+2. realm join --user=your-domain-admin-username@yourdomain.local yourdomain.local
+  a. realm join --user=amy.keigwin-adm@amy.local amy.local
+3. realm list - Verify that user has joined
+4. Logout and login as a domain user
+5. Verify with Active Directory Users and Computers
+  a. amy.local > Computers
+  b. web01-amy should exist
