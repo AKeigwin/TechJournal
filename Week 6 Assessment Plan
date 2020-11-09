@@ -1,79 +1,79 @@
 Step 1: Configure a firewall - Lab 01
 -------------------------------------
-1. Open Chrome to the fw01 IP LAN IP address (10.0.5.2)
-2. Modify firewall settings
-  2.1 - System Wizard: General Information
-    2.1.1 - Hostname: fw1-amy
-    2.1.2 - Domain: amy.local
-    2.1.3 - Primary DNS: 8.8.8.8
-  2.2 - System Wizard: Configure WAN Interface
-    8.2.1 - RFC1918 Networks: Uncheck "Block private networks from entering via WAN"
-  2.3 - System/User Manager
-    8.3.1 - Set Root Password
+  1. Open Chrome to the fw01 IP LAN IP address (10.0.5.2)
+  2. Modify firewall settings
+    a. System Wizard: General Information
+      i. Hostname: fw1-amy
+      ii. Domain: amy.local
+      iii. Primary DNS: 8.8.8.8
+    b. System Wizard: Configure WAN Interface
+      i. RFC1918 Networks: Uncheck "Block private networks from entering via WAN"
+    c. System/User Manager
+      i. Set Root Password
 
 Step 2: Domain Controller - Lab 02
 ----------------------------------
-1. Open ad01 VM
-2. Open Server Manager
-3. Promote this server to a domain controller
-4. Create new forest (amy.local)
-5. Enter a DSRM password
-6. Sign in as Domain Administrator instead of Local Administrator
-  6.1 - champuser
-  6.2 - Ch@mpl@1n!20
-7. Open Server Manager/DNS/AD01/DNS Manager
-8. Add Reverse Lookup Zone
-  8.1 - Network ID: 10.0.5
-9. Expand forward lookup zone (DNS/ad01/Forward Lookup Zones/amy.local)
-10. Right click and select New Host
-  10.1 - Host: fw01-amy
-  10.2 - IP Address - 10.0.5.2
-  10.3 Update associated pointer PTR record
+  1. Open ad01 VM
+  2. Open Server Manager
+  3. Promote this server to a domain controller
+  4. Create new forest (amy.local)
+  5. Enter a DSRM password
+  6. Sign in as Domain Administrator instead of Local Administrator
+    a. champuser
+    b. Ch@mpl@1n!20
+  7. Open Server Manager/DNS/AD01/DNS Manager
+  8. Add Reverse Lookup Zone
+    a. Network ID: 10.0.5
+  9. Expand forward lookup zone (DNS/ad01/Forward Lookup Zones/amy.local)
+  10. Right click and select New Host
+    a. Host: fw01-amy
+    b. IP Address - 10.0.5.2
+    c. Update associated pointer PTR record
 
 
 Step 3: DHCP Server - Lab 04
 ----------------------------
-1. SSH into DHCP server using ad01 VM with PuTTY
-  1.1 - dhcp01-amy
-2. sudo yum install dhcp
-3. sudo -i, nano /etc/dhcp/dhcp.conf
-  3.1 - 
-  subnet 10.0.5.0 netwask 255.255.255.0 {
-          option routers 10.0.5.2;
-          option subnet-mask 255.255.255.0;
-          option domain-name "amy.local";
-          option domain-name-servers 10.0.5.5;
-          range 10.0.5.100 10.0.5.150;
-4. systemctl start dhcpd
-5. systemctl enable dhcpd
-6. firewall-cmd --add-service=dhcp --permanent
-7. firewall-cmd --reload
-8. firewall-cmd --list-all
+  1. SSH into DHCP server using ad01 VM with PuTTY
+    a. dhcp01-amy
+  2. sudo yum install dhcp
+  3. sudo -i, nano /etc/dhcp/dhcp.conf
+    a. 
+    subnet 10.0.5.0 netwask 255.255.255.0 {
+            option routers 10.0.5.2;
+            option subnet-mask 255.255.255.0;
+            option domain-name "amy.local";
+            option domain-name-servers 10.0.5.5;
+            range 10.0.5.100 10.0.5.150;
+  4. systemctl start dhcpd
+  5. systemctl enable dhcpd
+  6. firewall-cmd --add-service=dhcp --permanent
+  7. firewall-cmd --reload
+  8. firewall-cmd --list-all
 
 
 Step 4: Join a workstation to the domain and network via DHCP
 -------------------------------------------------------------
-1. On Windows VM, change network information to "Obtain an IP address automatically"
-2. On Linux VM, view Week 3 Notes
-  2.1 Login as root
-  2.2 ntmui
-  2.3 Select interface and press enter
-  2.4 Change Automatic IPv4 configuration to Manual
-  2.5 Show
-  2.6 Add IP address(es) (with /24 for subnet mask), gateway, DNS server(s), and search domain(s)
-  2.7 Make sure that Automatically connect has an "X"
-  2.8 Press Ok
-  2.9 Press back
-  2.10 Select "Set system hostname"
-  2.11 Type in system hostname (dhcp01-amy)
-  2.12 Press Ok, then Quit
-  2.13 Verify IP address with ifconfig
-  2.14 If no IP address is there, type systemctl restart network
-  2.15 Type exit to change the hostname, and sign back in
-  2.16 Login as root
-  2.17 useradd [name]
-  2.18 passwd [name]
-  2.19 usermod -aG wheel [name]
-  2.20 (optional) to sudo in, sudo -l
+  1. On Windows VM, change network information to "Obtain an IP address automatically"
+  2. On Linux VM, view Week 3 Notes
+    a. Login as root
+    b. ntmui
+    c. Select interface and press enter
+    d. Change Automatic IPv4 configuration to Manual
+    e. Show
+    f. Add IP address(es) (with /24 for subnet mask), gateway, DNS server(s), and search domain(s)
+    g. Make sure that Automatically connect has an "X"
+    h. Press Ok
+    i. Press back
+    j. Select "Set system hostname"
+    k. Type in system hostname (dhcp01-amy)
+    l. Press Ok, then Quit
+    m. Verify IP address with ifconfig
+    n. If no IP address is there, type systemctl restart network
+    o. Type exit to change the hostname, and sign back in
+    p. Login as root
+    q. useradd [name]
+    r. passwd [name]
+    s. usermod -aG wheel [name]
+    t. (optional) to sudo in, sudo -l
 
 *Lab 03 is used to connect a Linux machine to the network
