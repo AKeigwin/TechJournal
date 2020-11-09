@@ -61,7 +61,7 @@ Adjust DNS
 
 Install WordPress
 -----------------
-  1. yum install php php-mysql httpd mariadb
+  1. yum install php php-mysql httpd mariadb mariadb-server
   2. mkdir /var/www/html -p
   3. cd /var/www/html
   4. wget http://wordpress.org/latest.tar.gz
@@ -75,19 +75,21 @@ Install WordPress
   11. cp wp-config-sample.ph wp.config.php
   12. nano /etc/php.ini
     a. extension=mysql.so
-  13. mysql -u root -p
+  13. systemctl start mariadb
+  14. systemctl enable mariadb
+  15. mysql -u root
     a. CREATE DATABASE wordpressdb;
     c. CREATE USER wordpressuser@localhost
     d. GRANT ALL ON wordpressdb.* TO wordpressuser@localhost IDENTIFIED BY 'Ch@mpl@1n!20';
-  14. nano wp-config.php
+  16. nano wp-config.php
     a. define('DB_NAME', 'wordpressdb');
     b. define('DB_USER', 'wordpressuser');
     c. define('DB_PASSWORD', 'Ch@mpl@1n!20');
     d. define('DB_HOST', 'localhost');
-  15. systemctl enable httpd
-  16. systemctl start httpd
-  17. chown -R apache:apache /var/www/html/*
-  18. chmod -R 775 /var/www/html/*
+  17. systemctl enable httpd
+  18. systemctl start httpd
+  19. chown -R apache:apache /var/www/html/*
+  20. chmod -R 775 /var/www/html/*
   
 Adjust Firewall to allow blog traffic in
 --------------------------------------
