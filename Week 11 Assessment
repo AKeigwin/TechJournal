@@ -1,3 +1,7 @@
+Root login:
+  root
+  Ch@mpl@1n20!
+
 Setup Address
 --------------
   1. Login as root
@@ -22,19 +26,17 @@ Setup Address
 
 Create named sudo user
 ----------------------
-  1. Login as root
-  2. useradd [name]
-  3. passwd [name]
-  4. usermod -aG wheel [name]
-  5. (optional) to elevate to root, sudo -i
+  1. useradd [name]
+  2. passwd [name]
+  3. usermod -aG wheel [name]
+  4. (optional) to elevate to root, sudo -i
 
 Secure SSH
 ----------
-  1. Sign into root user using "su"
-  2. Navigate to the ssh directory using "cd /etc/ssh"
-  3. Open the sshd_config file using "nano sshd_config" *root permissions are required, so use sudo or root user
-  4. Find the line PermitRootLogin (Ctrl-W), take out the comment if needed, and change the yes to no (ex: PermitRootLogin no)
-  5. Save and close the file
+  1. Navigate to the ssh directory using "cd /etc/ssh"
+  2. Open the sshd_config file using "nano sshd_config" *root permissions are required, so use sudo or root user
+  3. Find the line PermitRootLogin (Ctrl-W), take out the comment if needed, and change the yes to no (ex: PermitRootLogin no)
+  4. Save and close the file
 
 Join to Domain
 --------------
@@ -59,7 +61,6 @@ Adjust DNS
 
 Install WordPress
 -----------------
-Note: use sudo -i to do this as root
   1. yum install php php-mysql httpd mariadb
   2. mkdir /var/www/html -p
   3. cd /var/www/html
