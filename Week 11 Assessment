@@ -79,8 +79,9 @@ Install WordPress
   14. systemctl enable mariadb
   15. mysql -u root
     a. CREATE DATABASE wordpressdb;
-    c. CREATE USER wordpressuser@localhost
-    d. GRANT ALL ON wordpressdb.* TO wordpressuser@localhost IDENTIFIED BY 'Ch@mpl@1n!20';
+    c. CREATE USER wordpressuser@localhost;
+    d. GRANT ALL ON wordpressdb .* TO wordpressuser@localhost IDENTIFIED BY 'Ch@mpl@1n!20';
+    e. quit
   16. nano wp-config.php
     a. define('DB_NAME', 'wordpressdb');
     b. define('DB_USER', 'wordpressuser');
@@ -93,4 +94,4 @@ Install WordPress
   
 Adjust Firewall to allow blog traffic in
 --------------------------------------
-  1. sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+  1. firewall-cmd --zone=public --add-port=8080/tcp --permanent
